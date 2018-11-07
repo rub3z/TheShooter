@@ -38,6 +38,10 @@ private:
    float INNER_DEADZONE;
    float INPUT_MAX;
 
+   bool KEY_W, KEY_A, KEY_S, KEY_D, KEY_ESC;
+   bool BUTTON_RB, BUTTON_LB, BUTTON_B;
+   float LSTICK_X, LSTICK_Y, RSTICK_X, RSTICK_Y;
+
 
    // Private functions for internal use only.
    void input();

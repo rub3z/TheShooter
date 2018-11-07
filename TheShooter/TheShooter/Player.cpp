@@ -20,12 +20,9 @@ Vector2f Player::getPosition() {
    return pPosition;
 }
 
-void Player::moveX(float val) {
-   pMoveX = val;
-}
-
-void Player::moveY(float val) {
-   pMoveY = val;
+void Player::move(float const &valX, float const &valY) {
+   pMoveX = valX;
+   pMoveY = valY;
 }
 
 void Player::update(float& elapsedTime) {

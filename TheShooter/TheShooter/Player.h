@@ -25,9 +25,7 @@ public:
 
    Vector2f getPosition();
 
-   void moveX(float val);
-
-   void moveY(float val);
+   void move(float const &valX, float const &valY);
 
    void update(float& elapsedTime);
 
