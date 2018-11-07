@@ -2,10 +2,15 @@
 //
 
 #include "stdafx.h"
-#include <SFML/Graphics.hpp>
+#include "Engine.h"
+#include <iostream>
+
+using namespace std;
 
 int main()
 {
-    return 0;
+   Engine engine;
+   engine.start();
+   return 0;
 }
 
