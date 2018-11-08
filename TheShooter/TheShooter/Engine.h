@@ -6,6 +6,7 @@
 #pragma once
 #include "Player.h"
 #include "Projectile.h"
+#include "Enemy1.h"
 #include "ConstantsNStuff.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -31,6 +32,8 @@ private:
    int bulletCounter;
    float fireRateDelta;
    Projectile bullets[MAX_BULLETS];
+
+   Enemy1 enemies[MAX_ENEMY1];
 
    float dtAsSeconds;
 

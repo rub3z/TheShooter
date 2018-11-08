@@ -17,7 +17,7 @@ Sprite Player::getSprite() {
    return pSprite;
 }
 
-Vector2f Player::getPosition() {
+Vector2f& Player::getPosition() {
    return pPosition;
 }
 

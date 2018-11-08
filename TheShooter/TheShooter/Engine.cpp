@@ -11,7 +11,7 @@ Engine::Engine()
    fireRateDelta = 0;
    
    //RAINBOW!!!!
-   for (int i = 0; i < MAX_BULLETS; i++) {
+   /*for (int i = 0; i < MAX_BULLETS; i++) {
       switch (i % 7) {
       case 0:
          bullets[i].getSprite().setColor(Color::Red); break;
@@ -29,10 +29,11 @@ Engine::Engine()
          bullets[i].getSprite().setColor(Color(128, 0, 128, 255)); break;
       default: break;
       }
-   }
+   }*/
 
    /*for (int i = 0; i < MAX_BULLETS; i++) {
-      bullets[i].getSprite().setColor(Color(rand()%255, rand()%255, rand()%255, 255));
+      bullets[i].getSprite()
+         .setColor(Color(rand()%255, rand()%255, rand()%255, 255));
    }*/
 
    m_Window.create(VideoMode(resolution.x, resolution.y),
@@ -79,7 +80,7 @@ void Engine::start()
       }
       draw();
    }
-   /*Note: we may only be calling the update function 60/120 times per
+   /*Note: we may only be calling the update function 30/60/120 times per
       second, but we are continuously processing input and drawing to the
       screen. This way, the update rate of in-game objects remains consistent
       across systems running it; while ensuring that we are using the most

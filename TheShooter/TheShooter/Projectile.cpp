@@ -10,6 +10,7 @@ Projectile::Projectile() {
    pSprite.setTexture(pTexture);
    pSprite.setOrigin(5, 5);
    pSprite.setScale(0.5f, 0.5f);
+   pSprite.setColor(Color(255, 165, 0, 255));
    lifeTimeCounter = 0.0;
 }
 

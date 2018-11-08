@@ -23,7 +23,7 @@ public:
    Player();
    Sprite getSprite(); // I like Sprite. Caffeine-free.
 
-   Vector2f getPosition();
+   Vector2f& getPosition();
 
    void move(float const &valX, float const &valY);
 
