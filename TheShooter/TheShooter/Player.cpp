@@ -1,11 +1,12 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "ConstantsNStuff.h"
+
 
 Player::Player() {
-   speed = 4;
-
    pTexture.loadFromFile("Player.png");
    pSprite.setTexture(pTexture);
+   pSprite.setOrigin(5, 5);
 
    pPosition.x = 500;
    pPosition.y = 800;
@@ -26,8 +27,8 @@ void Player::move(float const &valX, float const &valY) {
 }
 
 void Player::update(float& elapsedTime) {
-   pPosition.x += pMoveX * speed * elapsedTime;
-   pPosition.y += pMoveY * speed * elapsedTime;
+   pPosition.x += pMoveX * PLAYER_SPEED * elapsedTime;
+   pPosition.y += pMoveY * PLAYER_SPEED * elapsedTime;
 
    pSprite.setPosition(pPosition);
 }

@@ -11,12 +11,9 @@ class Projectile {
    Texture pTexture;
 
    float pMoveX, pMoveY;
-
-   float speed;
-
+   
    float lifeTimeCounter;
-   float MAX_LIFETIME;
-
+   
 public:
    Projectile();
    Sprite& getSprite();

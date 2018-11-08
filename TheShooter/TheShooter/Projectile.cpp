@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Projectile.h"
+#include "ConstantsNStuff.h"
 #include <iostream>
 
 using namespace std;
@@ -7,11 +8,9 @@ using namespace std;
 Projectile::Projectile() {
    pTexture.loadFromFile("Player.png");
    pSprite.setTexture(pTexture);
+   pSprite.setOrigin(5, 5);
    pSprite.setScale(0.5f, 0.5f);
-   pSprite.setColor(Color::Red);
-   speed = 10;
    lifeTimeCounter = 0.0;
-   MAX_LIFETIME = 2.0;
 }
 
 Sprite& Projectile::getSprite() {
@@ -25,21 +24,20 @@ void Projectile::shootStraight(Vector2f& pos, float& vX, float& vY) {
    lifeTimeCounter = 0;
 }
 
-
 void Projectile::shootSpread(Vector2f& pos, float& vX, float& vY) {
    pPosition = pos;
-   pMoveX = ((vX + (((float)rand() / RAND_MAX) * 20) - 10) 
-            / sqrtf(pow(vX, 2) + pow(vY, 2))) * 100;
-   pMoveY = ((vY + (((float)rand() / RAND_MAX) * 20) - 10) 
-            / sqrtf(pow(vX, 2) + pow(vY, 2))) * 100;
+   pMoveX = (vX / (sqrtf(pow(vX, 2) + pow(vY, 2)))) * 100 + 
+            (((float)rand() / RAND_MAX) * BULLET_SPREAD) - (BULLET_SPREAD / 2);
+   pMoveY = (vY / (sqrtf(pow(vX, 2) + pow(vY, 2)))) * 100 + 
+            (((float)rand() / RAND_MAX) * BULLET_SPREAD) - (BULLET_SPREAD / 2);
    lifeTimeCounter = 0;
 }
 
 void Projectile::update(float& elapsedTime) {
-   pPosition.x += pMoveX * speed * elapsedTime;
-   pPosition.y += pMoveY * speed * elapsedTime;
+   pPosition.x += pMoveX * BULLET_SPEED * elapsedTime;
+   pPosition.y += pMoveY * BULLET_SPEED * elapsedTime;
    lifeTimeCounter += elapsedTime;
-   if (lifeTimeCounter > MAX_LIFETIME) { 
+   if (lifeTimeCounter > BULLET_LIFETIME) { 
       pMoveX = 0; pMoveY = 0; 
       lifeTimeCounter = 0; 
    }

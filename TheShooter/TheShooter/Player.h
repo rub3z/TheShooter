@@ -12,12 +12,12 @@ class Player {
 
    Texture pTexture;
 
+   // Movement components in x and y directions.
    float pMoveX, pMoveY;
-   // or even a vector velocity variable if you're feeling fancy and want
-   // to make your code more arcane and less readable.
-   Vector2f pVelocity;
 
-   float speed;
+   // Or we can use a vector velocity variable if we're feeling fancy and want
+   // to make our code even more arcane and less readable.
+   Vector2f pVelocity;
 
 public:
    Player();

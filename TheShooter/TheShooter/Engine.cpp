@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Engine.h"
 
-
 Engine::Engine()
 {
    // Get the screen resolution and create an SFML window and View
@@ -9,13 +8,10 @@ Engine::Engine()
    resolution.x = 1920;
    resolution.y = 1080;
    bulletCounter = 0;
-   MAX_BULLETS = (sizeof(bullets) / sizeof(*bullets));
    fireRateDelta = 0;
-   RAPID_FIRE_RATE = 0.01f;
-   SPREAD_FIRE_RATE = 0.15f;
-
+   
    //RAINBOW!!!!
-   /*for (int i = 0; i < MAX_BULLETS; i++) {
+   for (int i = 0; i < MAX_BULLETS; i++) {
       switch (i % 7) {
       case 0:
          bullets[i].getSprite().setColor(Color::Red); break;
@@ -34,7 +30,7 @@ Engine::Engine()
       default: break;
       }
    }
-*/
+
    /*for (int i = 0; i < MAX_BULLETS; i++) {
       bullets[i].getSprite().setColor(Color(rand()%255, rand()%255, rand()%255, 255));
    }*/
@@ -54,8 +50,6 @@ Engine::Engine()
    // Associate the sprite with the texture.
    m_BackgroundSprite.setTexture(m_BackgroundTexture);
 
-   INNER_DEADZONE = 20;
-   INPUT_MAX = 100;
 }
 
 void Engine::start()
@@ -74,14 +68,23 @@ void Engine::start()
       fireRateDelta += dt.asSeconds();
 
       input(fireRateDelta);
-      /* Comment out one of the two lines below to test out the difference
-         between an update rate of 60x per second vs. 120x per second.*/
-      if (dtAsSeconds > 0.0083333f) {
-      //if (dtAsSeconds > 0.0166666f) {
+      /* Comment out two of the three if statements below to compare 
+         update rates of 30x vs. 60x vs. 120x per second.*/
+
+      if (dtAsSeconds > 0.0083333f) { // 120 ticks per second
+      //if (dtAsSeconds > 0.0166666f) { // 60 per second
+      //if (dtAsSeconds > 0.0333333f) { // 30 per second
          update(dtAsSeconds);
          dtAsSeconds = 0;
       }
       draw();
    }
+   /*Note: we may only be calling the update function 60/120 times per
+      second, but we are continuously processing input and drawing to the
+      screen. This way, the update rate of in-game objects remains consistent
+      across systems running it; while ensuring that we are using the most
+      up-to-date input; and drawing the picture as many times as the system
+      can do so. Thus, we have achieved VARIABLE FRAMERATE!!! WOOHOO!!!
+   */
 }
 

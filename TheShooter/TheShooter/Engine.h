@@ -6,6 +6,7 @@
 #pragma once
 #include "Player.h"
 #include "Projectile.h"
+#include "ConstantsNStuff.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -28,16 +29,10 @@ private:
    Projectile bullet;
 
    int bulletCounter;
-   int MAX_BULLETS;
    float fireRateDelta;
-   float RAPID_FIRE_RATE;
-   float SPREAD_FIRE_RATE;
-   Projectile bullets[200];
+   Projectile bullets[MAX_BULLETS];
 
    float dtAsSeconds;
-
-   float INNER_DEADZONE;
-   float INPUT_MAX;
 
    bool KEY_W, KEY_A, KEY_S, KEY_D, KEY_ESC;
    bool BUTTON_RB, BUTTON_LB, BUTTON_B;
