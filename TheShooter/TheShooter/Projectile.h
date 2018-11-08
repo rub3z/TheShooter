@@ -19,7 +19,7 @@ class Projectile {
 
 public:
    Projectile();
-   Sprite getSprite();
+   Sprite& getSprite();
    void shootStraight(Vector2f& pos, float& vX, float& vY);
    void shootSpread(Vector2f& pos, float& vX, float& vY);
    void update(float& elapsedTime);

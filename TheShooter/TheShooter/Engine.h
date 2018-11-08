@@ -29,9 +29,10 @@ private:
 
    int bulletCounter;
    int MAX_BULLETS;
-   int fireRateCounter;
-   int FIRE_RATE_IN_TICKS;
-   Projectile bullets[100];
+   float fireRateDelta;
+   float RAPID_FIRE_RATE;
+   float SPREAD_FIRE_RATE;
+   Projectile bullets[200];
 
    float dtAsSeconds;
 
@@ -44,7 +45,7 @@ private:
 
 
    // Private functions for internal use only.
-   void input();
+   void input(float& dtAsSeconds);
    void update(float& dtAsSeconds);
    void draw();
 

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Engine.h"
 
-void Engine::input()
+void Engine::input(float& dtAsSeconds)
 {
    KEY_W = Keyboard::isKeyPressed(Keyboard::W);
    KEY_A = Keyboard::isKeyPressed(Keyboard::A);
@@ -33,32 +33,20 @@ void Engine::input()
          player.move(LSTICK_X, LSTICK_Y);
 
       if (BUTTON_RB) {
-         if (fireRateCounter++ == FIRE_RATE_IN_TICKS) {
+         if (fireRateDelta >= RAPID_FIRE_RATE) {
             if (RSTICK_X > 10 || RSTICK_X < -10 ||
                RSTICK_Y > 10 || RSTICK_Y < -10) {
                bullets[bulletCounter++].shootStraight(player.getPosition(),
                   RSTICK_X, RSTICK_Y);
                if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
             }
-            fireRateCounter = 0;
+            fireRateDelta = 0;
          }
       }
       if (BUTTON_LB) {
-         if (fireRateCounter++ == FIRE_RATE_IN_TICKS * 10) {
+         if (fireRateDelta >= SPREAD_FIRE_RATE) {
             if (RSTICK_X > 10 || RSTICK_X < -10 ||
                RSTICK_Y > 10 || RSTICK_Y < -10) {
-               bullets[bulletCounter++].shootSpread(player.getPosition(),
-                  RSTICK_X, RSTICK_Y);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player.getPosition(),
-                  RSTICK_X, RSTICK_Y);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player.getPosition(),
-                  RSTICK_X, RSTICK_Y);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player.getPosition(),
-                  RSTICK_X, RSTICK_Y);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
                bullets[bulletCounter++].shootSpread(player.getPosition(),
                   RSTICK_X, RSTICK_Y);
                if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
@@ -79,7 +67,7 @@ void Engine::input()
                if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
 
             }
-            fireRateCounter = 0;
+            fireRateDelta = 0;
          }
       }
    }

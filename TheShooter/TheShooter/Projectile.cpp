@@ -8,12 +8,13 @@ Projectile::Projectile() {
    pTexture.loadFromFile("Player.png");
    pSprite.setTexture(pTexture);
    pSprite.setScale(0.5f, 0.5f);
-   speed = 8;
+   pSprite.setColor(Color::Red);
+   speed = 10;
    lifeTimeCounter = 0.0;
    MAX_LIFETIME = 2.0;
 }
 
-Sprite Projectile::getSprite() {
+Sprite& Projectile::getSprite() {
    return pSprite;
 }
 
@@ -27,9 +28,9 @@ void Projectile::shootStraight(Vector2f& pos, float& vX, float& vY) {
 
 void Projectile::shootSpread(Vector2f& pos, float& vX, float& vY) {
    pPosition = pos;
-   pMoveX = ((vX + (((float)rand() / RAND_MAX) * 10) - 5) 
+   pMoveX = ((vX + (((float)rand() / RAND_MAX) * 20) - 10) 
             / sqrtf(pow(vX, 2) + pow(vY, 2))) * 100;
-   pMoveY = ((vY + (((float)rand() / RAND_MAX) * 10) - 5) 
+   pMoveY = ((vY + (((float)rand() / RAND_MAX) * 20) - 10) 
             / sqrtf(pow(vX, 2) + pow(vY, 2))) * 100;
    lifeTimeCounter = 0;
 }
