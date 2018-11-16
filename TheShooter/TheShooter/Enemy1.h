@@ -11,18 +11,14 @@ class Enemy1 {
 
    Texture pTexture;
 
-   float pMoveX, pMoveY;
+   float pVelX, pVelY;
    float pAccX, pAccY;
 
 public:
    Enemy1();
    Sprite& getSprite();
    Vector2f& getPosition();
-   float getAccX();
-   float getAccY();
-
-   void move(float const &valX, float const &valY);
-
+   float distance;
    void update(float& elapsedTime, Vector2f playerPos);
 
 };
