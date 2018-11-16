@@ -20,8 +20,8 @@ class Player {
    Vector2f pVelocity;
 
 public:
-   Player();
-   Sprite getSprite(); // I like Sprite. Caffeine-free.
+   Player(int playerNum);
+   Sprite& getSprite(); // I like Sprite. Caffeine-free.
 
    Vector2f& getPosition();
 

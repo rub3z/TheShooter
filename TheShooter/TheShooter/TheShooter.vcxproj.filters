@@ -33,10 +33,10 @@
     <ClInclude Include="Projectile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ConstantsNStuff.h">
+    <ClInclude Include="Enemy1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy1.h">
+    <ClInclude Include="ConstantsNStuff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

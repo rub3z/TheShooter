@@ -8,8 +8,28 @@ Engine::Engine()
    resolution.x = 1920;
    resolution.y = 1080;
    bulletCounter = 0;
-   fireRateDelta = 0;
-   
+   fireRateDeltaPlayer0 = 0;
+   fireRateDeltaPlayer1 = 0;
+
+
+   m_Window.create(VideoMode(resolution.x, resolution.y),
+      "MY SHOOTER GAME WOO"
+      // Comment/uncomment this line to change between
+      // windowed or fullscreen mode.
+      //, Style::Fullscreen
+   );
+
+   m_Window.setMouseCursorVisible(false);
+
+   // Load the background texture.
+   m_BackgroundTexture.loadFromFile("background.jpg");
+
+   // Associate the sprite with the texture.
+   m_BackgroundSprite.setTexture(m_BackgroundTexture);
+
+   player0 = Player(0);
+   player1 = Player(1);
+
    //RAINBOW!!!!
    /*for (int i = 0; i < MAX_BULLETS; i++) {
       switch (i % 7) {
@@ -35,21 +55,7 @@ Engine::Engine()
       bullets[i].getSprite()
          .setColor(Color(rand()%255, rand()%255, rand()%255, 255));
    }*/
-
-   m_Window.create(VideoMode(resolution.x, resolution.y),
-      "MY SHOOTER GAME WOO"
-      // Comment/uncomment this line to change between
-      // windowed or fullscreen mode.
-      , Style::Fullscreen
-   );
-
-   m_Window.setMouseCursorVisible(false);
-
-   // Load the background texture.
-   m_BackgroundTexture.loadFromFile("background.jpg");
-
-   // Associate the sprite with the texture.
-   m_BackgroundSprite.setTexture(m_BackgroundTexture);
+   
 
 }
 
@@ -66,14 +72,15 @@ void Engine::start()
 
       // Make a fraction from the delta time
       dtAsSeconds   += dt.asSeconds();
-      fireRateDelta += dt.asSeconds();
+      fireRateDeltaPlayer0 += dt.asSeconds();
+      fireRateDeltaPlayer1 += dt.asSeconds();
 
-      input(fireRateDelta);
+      input();
       /* Comment out two of the three if statements below to compare 
          update rates of 30x vs. 60x vs. 120x per second.*/
 
-      if (dtAsSeconds > 0.0083333f) { // 120 ticks per second
-      //if (dtAsSeconds > 0.0166666f) { // 60 per second
+      //if (dtAsSeconds > 0.0083333f) { // 120 ticks per second
+      if (dtAsSeconds > 0.0166666f) { // 60 per second
       //if (dtAsSeconds > 0.0333333f) { // 30 per second
          update(dtAsSeconds);
          dtAsSeconds = 0;

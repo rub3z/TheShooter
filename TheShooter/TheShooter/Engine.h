@@ -26,24 +26,23 @@ private:
    Texture m_BackgroundTexture;
 
    // An instance of Player.
-   Player player;
+   Player player0 = Player(0);
+   Player player1 = Player(1);
    Projectile bullet;
 
    int bulletCounter;
-   float fireRateDelta;
+   float fireRateDeltaPlayer0;
+   float fireRateDeltaPlayer1;
+   float fireRateDeltaPlayer2;
+   float fireRateDeltaPlayer3;
    Projectile bullets[MAX_BULLETS];
 
-   Enemy1 enemies[MAX_ENEMY1];
+   Enemy1 enemy;
 
    float dtAsSeconds;
 
-   bool KEY_W, KEY_A, KEY_S, KEY_D, KEY_ESC;
-   bool BUTTON_RB, BUTTON_LB, BUTTON_B;
-   float LSTICK_X, LSTICK_Y, RSTICK_X, RSTICK_Y;
-
-
    // Private functions for internal use only.
-   void input(float& dtAsSeconds);
+   void input();
    void update(float& dtAsSeconds);
    void draw();
 
