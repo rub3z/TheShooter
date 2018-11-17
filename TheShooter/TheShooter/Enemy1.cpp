@@ -3,7 +3,7 @@
 #include "ConstantsNStuff.h"
 
 Enemy1::Enemy1() {
-   pTexture.loadFromFile("Player.png"); 
+   pTexture.loadFromFile("Player.png");
    pSprite.setTexture(pTexture);
    pSprite.setOrigin(5, 5);
    pSprite.setScale(2, 2);
@@ -25,6 +25,10 @@ Sprite& Enemy1::getSprite() {
 
 Vector2f& Enemy1::getPosition() {
    return pPosition;
+}
+
+void Enemy1::hit(FloatRect& other) {
+   
 }
 
 void Enemy1::update(float& elapsedTime, Vector2f playerPos) {

@@ -18,6 +18,10 @@ Sprite& Projectile::getSprite() {
    return pSprite;
 }
 
+FloatRect& Projectile::getRect() {
+   return pSprite.getGlobalBounds();
+}
+
 void Projectile::shootStraight(Vector2f& pos, float& vX, float& vY) {
    pPosition = pos;
    pMoveX = (vX / sqrtf(pow(vX, 2) + pow(vY, 2))) * 100;

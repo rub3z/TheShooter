@@ -58,44 +58,18 @@ void Engine::input()
             fireRateDeltaPlayer0 = 0;
          }
       }
-      // Spreadshot with LB. Repeats the same 3 lines 10 times.
-      // Silly, but it works and it's not like there's much that can be done 
-      // to improve it in terms of runtime.
+      // Spread fire with LB.
       if (BUTTON_LB_0) {
          if (fireRateDeltaPlayer0 >= SPREAD_FIRE_RATE) {
             if (RSTICK_X_0 > 10 || RSTICK_X_0 < -10 ||
                RSTICK_Y_0 > 10 || RSTICK_Y_0 < -10) {
-               bullets[bulletCounter++].shootSpread(player0.getPosition(),
-                  RSTICK_X_0, RSTICK_Y_0);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player0.getPosition(),
-                  RSTICK_X_0, RSTICK_Y_0);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player0.getPosition(),
-                  RSTICK_X_0, RSTICK_Y_0);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player0.getPosition(),
-                  RSTICK_X_0, RSTICK_Y_0);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player0.getPosition(),
-                  RSTICK_X_0, RSTICK_Y_0);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player0.getPosition(),
-                  RSTICK_X_0, RSTICK_Y_0);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player0.getPosition(),
-                  RSTICK_X_0, RSTICK_Y_0);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player0.getPosition(),
-                  RSTICK_X_0, RSTICK_Y_0);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player0.getPosition(),
-                  RSTICK_X_0, RSTICK_Y_0);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-               bullets[bulletCounter++].shootSpread(player0.getPosition(),
-                  RSTICK_X_0, RSTICK_Y_0);
-               if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
-
+               for (spreadBulletCounter = 0;
+                  spreadBulletCounter < SPREAD_BULLETS;
+                  spreadBulletCounter++) {
+                  bullets[bulletCounter++].shootSpread(player0.getPosition(),
+                     RSTICK_X_0, RSTICK_Y_0);
+                  if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
+               }
             }
             fireRateDeltaPlayer0 = 0;
          }
@@ -115,6 +89,22 @@ void Engine::input()
                bullets[bulletCounter++].shootStraight(player1.getPosition(),
                   RSTICK_X_1, RSTICK_Y_1);
                if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
+            }
+            fireRateDeltaPlayer1 = 0;
+         }
+      }
+
+      if (BUTTON_LB_1) {
+         if (fireRateDeltaPlayer1 >= SPREAD_FIRE_RATE) {
+            if (RSTICK_X_1 > 10 || RSTICK_X_1 < -10 ||
+               RSTICK_Y_1 > 10 || RSTICK_Y_1 < -10) {
+               for (spreadBulletCounter = 0;
+                  spreadBulletCounter < SPREAD_BULLETS;
+                  spreadBulletCounter++) {
+                  bullets[bulletCounter++].shootSpread(player1.getPosition(),
+                     RSTICK_X_1, RSTICK_Y_1);
+                  if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
+               }
             }
             fireRateDeltaPlayer1 = 0;
          }

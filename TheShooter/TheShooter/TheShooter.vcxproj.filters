@@ -39,6 +39,9 @@
     <ClInclude Include="ConstantsNStuff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RectangularBoundaryCollision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

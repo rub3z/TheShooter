@@ -31,6 +31,7 @@ private:
    Projectile bullet;
 
    int bulletCounter;
+   int spreadBulletCounter;
    float fireRateDeltaPlayer0;
    float fireRateDeltaPlayer1;
    float fireRateDeltaPlayer2;

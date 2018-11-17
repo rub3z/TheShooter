@@ -8,6 +8,7 @@ Engine::Engine()
    resolution.x = 1920;
    resolution.y = 1080;
    bulletCounter = 0;
+   spreadBulletCounter = 0;
    fireRateDeltaPlayer0 = 0;
    fireRateDeltaPlayer1 = 0;
 
@@ -31,7 +32,7 @@ Engine::Engine()
    player1 = Player(1);
 
    //RAINBOW!!!!
-   /*for (int i = 0; i < MAX_BULLETS; i++) {
+   for (int i = 0; i < MAX_BULLETS; i++) {
       switch (i % 7) {
       case 0:
          bullets[i].getSprite().setColor(Color::Red); break;
@@ -49,7 +50,7 @@ Engine::Engine()
          bullets[i].getSprite().setColor(Color(128, 0, 128, 255)); break;
       default: break;
       }
-   }*/
+   }
 
    /*for (int i = 0; i < MAX_BULLETS; i++) {
       bullets[i].getSprite()

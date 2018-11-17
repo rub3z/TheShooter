@@ -13,12 +13,13 @@ class Enemy1 {
 
    float pVelX, pVelY;
    float pAccX, pAccY;
+   float distance;
 
 public:
    Enemy1();
    Sprite& getSprite();
    Vector2f& getPosition();
-   float distance;
+   void hit(FloatRect& other);
    void update(float& elapsedTime, Vector2f playerPos);
 
 };
