@@ -39,6 +39,7 @@ private:
    Projectile bullets[MAX_BULLETS];
 
    Enemy1 enemy;
+   Enemy1 enemies[MAX_ENEMY1];
 
    float dtAsSeconds;
 

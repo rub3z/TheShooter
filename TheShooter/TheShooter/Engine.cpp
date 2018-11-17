@@ -52,6 +52,10 @@ Engine::Engine()
       }
    }
 
+   for (int i = 0; i < MAX_ENEMY1; i++) {
+      enemies[i].getPosition().x = i * 10;
+   }
+
    /*for (int i = 0; i < MAX_BULLETS; i++) {
       bullets[i].getSprite()
          .setColor(Color(rand()%255, rand()%255, rand()%255, 255));
