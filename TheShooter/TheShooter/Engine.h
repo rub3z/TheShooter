@@ -28,6 +28,7 @@ private:
    // An instance of Player.
    Player player0 = Player(0);
    Player player1 = Player(1);
+   Player player2 = Player(2);
    Projectile bullet;
 
    int bulletCounter;

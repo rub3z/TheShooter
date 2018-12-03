@@ -11,13 +11,15 @@ Engine::Engine()
    spreadBulletCounter = 0;
    fireRateDeltaPlayer0 = 0;
    fireRateDeltaPlayer1 = 0;
+   fireRateDeltaPlayer2 = 0;
+   fireRateDeltaPlayer3 = 0;
 
 
    m_Window.create(VideoMode(resolution.x, resolution.y),
       "MY SHOOTER GAME WOO"
       // Comment/uncomment this line to change between
       // windowed or fullscreen mode.
-      //, Style::Fullscreen
+      , Style::Fullscreen
    );
 
    m_Window.setMouseCursorVisible(false);
@@ -56,10 +58,10 @@ Engine::Engine()
       enemies[i].getPosition().x = i * 10;
    }
 
-   /*for (int i = 0; i < MAX_BULLETS; i++) {
+   for (int i = 0; i < MAX_BULLETS; i++) {
       bullets[i].getSprite()
          .setColor(Color(rand()%255, rand()%255, rand()%255, 255));
-   }*/
+   }
    
 
 }
@@ -79,6 +81,7 @@ void Engine::start()
       dtAsSeconds   += dt.asSeconds();
       fireRateDeltaPlayer0 += dt.asSeconds();
       fireRateDeltaPlayer1 += dt.asSeconds();
+      fireRateDeltaPlayer2 += dt.asSeconds();
 
       input();
       /* Comment out two of the three if statements below to compare 

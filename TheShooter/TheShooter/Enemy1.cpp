@@ -7,7 +7,7 @@ Enemy1::Enemy1() {
    pSprite.setTexture(pTexture);
    pSprite.setOrigin(5, 5);
    pSprite.setScale(1.5f, 1.5f);
-   pSprite.setColor(Color(255, 0, 0, 255));
+   pSprite.setColor(Color(255, rand()%128, rand()%128, 255));
 
    pAccX = 0;
    pAccY = 0;
