@@ -6,13 +6,15 @@
 #pragma once
 #include "Player.h"
 #include "Projectile.h"
-#include "Enemy1.h"
+#include "Enemy.h"
 #include "ConstantsNStuff.h"
+#include "RectangularBoundaryCollision.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
 using namespace std;
 using namespace sf;
+using namespace collision;
 
 class Engine
 {
@@ -39,10 +41,11 @@ private:
    float fireRateDeltaPlayer3;
    Projectile bullets[MAX_BULLETS];
 
-   Enemy1 enemy;
-   Enemy1 enemies[MAX_ENEMY1];
+   Enemy enemy;
+   Enemy enemies[MAX_ENEMY1];
 
    float dtAsSeconds;
+   float frameTime;
 
    // Private functions for internal use only.
    void input();

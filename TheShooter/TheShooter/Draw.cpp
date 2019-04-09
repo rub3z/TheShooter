@@ -14,7 +14,7 @@ void Engine::draw()
    m_Window.draw(player2.getSprite());
 
    for (Projectile& p : bullets) m_Window.draw(p.getSprite());
-   for (Enemy1& e : enemies) m_Window.draw(e.getSprite());
+   for (Enemy& e : enemies) m_Window.draw(e.getSprite());
    m_Window.draw(enemy.getSprite());
 
    // Show everything we have just drawn

@@ -10,7 +10,7 @@ const float INNER_DEADZONE = 25;
 const float INPUT_MAX = 100;
 const float RAPID_FIRE_RATE = 0.01f;
 const float SPREAD_FIRE_RATE = 0.15f;
-const int   SPREAD_BULLETS = 30;
+const int   SPREAD_BULLETS = 15;
 
 const int MAX_ENEMY1 = 200;
 const float ENEMY1_SPEED = 10;

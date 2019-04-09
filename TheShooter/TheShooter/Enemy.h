@@ -4,22 +4,28 @@
 using namespace sf;
 
 
-class Enemy1 {
+class Enemy {
    Vector2f pPosition;
 
    Sprite pSprite;
 
    Texture pTexture;
 
+   int enemyType;
    float pVelX, pVelY;
    float pAccX, pAccY;
    float distance;
+   float distanceX;
+   float distanceY;
 
 public:
-   Enemy1();
+   Enemy();
+   Enemy(int type);
    Sprite& getSprite();
    Vector2f& getPosition();
    void hit(FloatRect& other);
+   void hit();
    void update(float& elapsedTime, Vector2f playerPos);
+   void move();
 
 };

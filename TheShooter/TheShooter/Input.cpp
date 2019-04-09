@@ -64,7 +64,8 @@ void Engine::input()
                   RSTICK_X_0, RSTICK_Y_0);
                if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
             }
-            fireRateDeltaPlayer0 = 0;
+
+            fireRateDeltaPlayer0 -= RAPID_FIRE_RATE;
          }
       }
       // Spread fire with LB.
@@ -80,7 +81,7 @@ void Engine::input()
                   if (bulletCounter >= MAX_BULLETS) bulletCounter = 0;
                }
             }
-            fireRateDeltaPlayer0 = 0;
+            fireRateDeltaPlayer0 -= SPREAD_FIRE_RATE;
          }
       }
    }
